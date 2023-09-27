@@ -26,7 +26,7 @@ const Modal = ({open,onClose}) => {
     const handleSubmit = async(e)=>{
         e.preventDefault()
         try {
-            await axios.post('http://127.0.0.1:5000/post',overlayForm)
+            await axios.post('https://flask-project-0b59.onrender.com/post',overlayForm)
             toast.success('Created Successfully')
         } catch (error) {
             console.log(error)

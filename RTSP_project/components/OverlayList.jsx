@@ -24,7 +24,7 @@ const OverlayList = () => {
   useEffect(() => {
     const getList = async () => {
       try {
-        const res = await axios.get('http://127.0.0.1:5000/get');
+        const res = await axios.get('https://flask-project-0b59.onrender.com/get');
         const data = await res.data
         setOverlayList(data);
       } catch (error) {
@@ -42,7 +42,7 @@ const OverlayList = () => {
 
   const onDeleteClick = async(overlay) => {
     try {
-      await axios.delete(`http://127.0.0.1:5000/delete/${overlay._id.$oid}`)
+      await axios.delete(`https://flask-project-0b59.onrender.com/delete/${overlay._id.$oid}`)
       toastr.success('Deleted overlay')
     } catch (error) {
       console.log(error)

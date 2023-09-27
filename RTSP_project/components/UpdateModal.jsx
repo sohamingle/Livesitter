@@ -28,7 +28,7 @@ const Modal = ({open,onClose,data}) => {
     const handleSubmit = async(e)=>{
         e.preventDefault()
         try {
-            await axios.put(`http://127.0.0.1:5000/update/${data._id.$oid}`,updateForm)
+            await axios.put(`https://flask-project-0b59.onrender.com/update/${data._id.$oid}`,updateForm)
             toast.success('Updated Successfully')
         } catch (error) {
             console.log(error)

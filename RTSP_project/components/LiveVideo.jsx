@@ -8,9 +8,9 @@ const LiveVideo = ({videoUrl}) => {
 
   useEffect(()=>{
     const getOverlays = async ()=>{
-      const text = await axios.get('http://127.0.0.1:5000/text')
+      const text = await axios.get('https://flask-project-0b59.onrender.com/text')
       setTextOverlays(text.data)
-      const image = await axios.get('http://127.0.0.1:5000/image')
+      const image = await axios.get('https://flask-project-0b59.onrender.com/image')
       setImageOverlays(image.data)
     }
     getOverlays()
