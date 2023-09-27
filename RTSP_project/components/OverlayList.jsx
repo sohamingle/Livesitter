@@ -32,7 +32,7 @@ const OverlayList = () => {
       }
     };
     getList();
-  }, [open, modalOpen]);
+  }, [overlayList]);
 
 
   const onEditClick = (overlay) => {
