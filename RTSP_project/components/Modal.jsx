@@ -4,7 +4,7 @@ import toast from 'react-hot-toast'
 
 const Modal = ({open,onClose}) => {
 
-    
+    const [loading,setLoading] = useState(false)
 
     const [overlayForm,setOverlayForm] = useState({
         name: '',
@@ -26,6 +26,7 @@ const Modal = ({open,onClose}) => {
     const handleSubmit = async(e)=>{
         e.preventDefault()
         try {
+            setLoading(true)
             await axios.post('https://flask-project-0b59.onrender.com/post',overlayForm)
             toast.success('Created Successfully')
         } catch (error) {
@@ -33,6 +34,7 @@ const Modal = ({open,onClose}) => {
             toast.error('Something went wrong')
         }finally{
             onClose()
+            setLoading(false)
             setOverlayForm({
                 name: '',
                 type:'',
@@ -156,7 +158,7 @@ const Modal = ({open,onClose}) => {
                         />
                         </label>
                         </div>
-                        <button type='submit' className="btn btn-success text-white">Add Overlay</button>
+                        <button disabled={loading} type='submit' className="btn btn-success text-white">Add Overlay</button>
                         </div>
                     </form>
                 </div>

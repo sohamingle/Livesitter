@@ -28,7 +28,7 @@ const LiveVideo = ({videoUrl}) => {
               <img src={image.value} alt={image.name}/>
           </div>
         ))}
-        <iframe className='z-0 lg:w-[640px] lg:h-[480px]'  src={videoUrl}  allowFullScreen >
+        <iframe className='z-0 md:w-[640px] md:h-[480px]'  src={videoUrl}  allowFullScreen >
         </iframe>
       </div>
   )

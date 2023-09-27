@@ -5,6 +5,7 @@ import toast from 'react-hot-toast'
 const Modal = ({open,onClose,data}) => {
 
     const [updateForm, setUpdateForm] = useState({});
+    const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     setUpdateForm({
@@ -28,6 +29,7 @@ const Modal = ({open,onClose,data}) => {
     const handleSubmit = async(e)=>{
         e.preventDefault()
         try {
+            setLoading(true)
             await axios.put(`https://flask-project-0b59.onrender.com/update/${data._id.$oid}`,updateForm)
             toast.success('Updated Successfully')
         } catch (error) {
@@ -35,6 +37,7 @@ const Modal = ({open,onClose,data}) => {
             toast.error('Something went wrong')
         }finally{
             onClose()
+            setLoading(false)
         }
         
         
@@ -135,7 +138,7 @@ const Modal = ({open,onClose,data}) => {
                         />
                         </label>
                         </div>
-                        <button type='submit' className="btn btn-success text-white">Save Changes</button>
+                        <button disabled={loading} type='submit' className="btn btn-success text-white">Save Changes</button>
                         </div>
                     </form>
                 </div>
