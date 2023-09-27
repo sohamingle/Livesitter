@@ -2,10 +2,13 @@ from flask import Flask,jsonify,request
 from flask_cors import CORS
 from pymongo import MongoClient
 from bson import ObjectId, json_util
+from dotenv import load_dotenv
+load_dotenv()
+import os
 
 app = Flask(__name__)
 
-client = MongoClient('mongodb+srv://sohamingle:7qnc4aqbAPkdgjP2@livesitter.axqzlpw.mongodb.net/?retryWrites=true&w=majority')
+client = MongoClient(os.getenv("MONGO_URI"))
 db = client['overlays']
 collection = db['overlays']
 
