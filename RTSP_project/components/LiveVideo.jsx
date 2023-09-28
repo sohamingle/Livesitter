@@ -20,20 +20,15 @@ const LiveVideo = ({videoUrl}) => {
     <div className='relative'>
         {textOverlays.map((text)=>(
           <>
-          <div key={text.name} className='hidden md:block md:absolute md:z-10 md:text-white' style={{bottom:`${text.position_y}rem`,left:`${text.position_x}rem`,width:`${text.width}rem`,height:`${text.height}rem`}}>
-              {text.value}
-          </div>
-          <div key={text.name} className='md:hidden absolute z-10 text-white' style={{bottom:`${text.position_y}%`,left:`${text.position_x}%`,width:`${text.width}%`,height:`${text.height}%`}}>
+          <div key={text.name} className='absolute z-10 text-white' style={{bottom:`${text.position_y}%`,left:`${text.position_x}%`,width:`${text.width}%`,height:`${text.height}%`}}>
               {text.value}
           </div>
           </>
         ))}
         {imageOverlays.map((image)=>(
           <>
-          <div key={image.name} className='hidden lg:absolute lg:z-10 lg:text-white' style={{bottom:`${image.position_y}rem`,left:`${image.position_x}rem`,width:`${image.width}rem`,height:`${image.height}rem`}}>
-              <img src={image.value} alt={image.name}/>
-          </div>
-          <div key={image.name} className='lg:hidden absolute z-10 text-white' style={{bottom:`${image.position_y}%`,left:`${image.position_x}%`,width:`${image.width}%`,height:`${image.height}%`}}>
+          
+          <div key={image.name} className='absolute z-10 text-white' style={{bottom:`${image.position_y}%`,left:`${image.position_x}%`,width:`${image.width}%`,height:`${image.height}%`}}>
               <img src={image.value} alt={image.name}/>
           </div>
           </>
