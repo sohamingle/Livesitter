@@ -96,6 +96,7 @@ const Modal = ({open,onClose,data}) => {
                         type="number" 
                         name="position_x" 
                         id='position_x'
+                        placeholder='(in %)'
                         value={updateForm.position_x}
                         onChange={handleChange}
                         className='input bg-white text-black'
@@ -107,6 +108,7 @@ const Modal = ({open,onClose,data}) => {
                         type="number" 
                         name="position_y" 
                         id='position_y'
+                        placeholder='in %'
                         value={updateForm.position_y}
                         onChange={handleChange}
                         className='input bg-white text-black'
@@ -120,6 +122,7 @@ const Modal = ({open,onClose,data}) => {
                         type="number" 
                         name="width" 
                         id='width'
+                        placeholder='(in %)'
                         value={updateForm.width}
                         onChange={handleChange}
                         className='input bg-white text-black'
@@ -132,6 +135,7 @@ const Modal = ({open,onClose,data}) => {
                         type="number" 
                         name="height" 
                         id='height'
+                        placeholder='(in %)'
                         value={updateForm.height}
                         onChange={handleChange}
                         className='input bg-white text-black'

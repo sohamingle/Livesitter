@@ -116,6 +116,7 @@ const Modal = ({open,onClose}) => {
                         type="number" 
                         name="position_x" 
                         id='position_x'
+                        placeholder='(in %)'
                         value={overlayForm.position_x} 
                         onChange={handleChange}
                         className='input bg-white text-black'
@@ -127,6 +128,7 @@ const Modal = ({open,onClose}) => {
                         type="number" 
                         name="position_y" 
                         id='position_y'
+                        placeholder='(in %)'
                         value={overlayForm.position_y} 
                         onChange={handleChange}
                         className='input bg-white text-black'
@@ -140,6 +142,7 @@ const Modal = ({open,onClose}) => {
                         type="number" 
                         name="width" 
                         id='width'
+                        placeholder='(in %)'
                         value={overlayForm.width} 
                         onChange={handleChange}
                         className='input bg-white text-black'
@@ -152,6 +155,7 @@ const Modal = ({open,onClose}) => {
                         type="number" 
                         name="height" 
                         id='height'
+                        placeholder='(in %)'
                         value={overlayForm.height} 
                         onChange={handleChange}
                         className='input bg-white text-black'
