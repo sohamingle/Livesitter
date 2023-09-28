@@ -14,7 +14,7 @@ const UrlForm = () => {
   return (
     <div className='flex flex-col gap-y-4'>
       <LiveVideo videoUrl={videoUrl} />
-      <div className='flex'>
+      <div className='lg:flex'>
         <div className='max-w-xs space-y-3'>
           <label className='flex flex-col text-white gap-y-2' htmlFor="videoUrl">
             Change Url
