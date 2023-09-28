@@ -1,27 +1,24 @@
 import axios from 'axios'
-import React, { useState , useEffect} from 'react'
+import React, { useState } from 'react'
 import toast from 'react-hot-toast'
 
-const Modal = ({open,onClose,data}) => {
+const Modal = ({open,onClose}) => {
 
-    const [updateForm, setUpdateForm] = useState({});
-    const [loading, setLoading] = useState(false);
+    const [loading,setLoading] = useState(false)
 
-  useEffect(() => {
-    setUpdateForm({
-      name: data.name || '',
-      type: data.type || '',
-      value: data.value || '',
-      position_x: data.position_x || '',
-      position_y: data.position_y || '',
-      width: data.width || '',
-      height: data.height || '',
-    });
-  }, [data]);
+    const [overlayForm,setOverlayForm] = useState({
+        name: '',
+        type:'',
+        value: '',
+        position_x:0,
+        position_y:0,
+        width:0,
+        height:0
+    })
 
     const handleChange =(e)=>{
-        setUpdateForm({
-          ...updateForm,
+        setOverlayForm({
+          ...overlayForm,
             [e.target.name]:e.target.value
         })
     }
@@ -30,14 +27,23 @@ const Modal = ({open,onClose,data}) => {
         e.preventDefault()
         try {
             setLoading(true)
-            await axios.put(`https://flask-project-0b59.onrender.com/update/${data._id.$oid}`,updateForm)
-            toast.success('Updated Successfully')
+            await axios.post('https://flask-project-0b59.onrender.com/post',overlayForm)
+            toast.success('Created Successfully')
         } catch (error) {
             console.log(error)
             toast.error('Something went wrong')
         }finally{
             onClose()
             setLoading(false)
+            setOverlayForm({
+                name: '',
+                type:'',
+                value: '',
+                position_x:0,
+                position_y:0,
+                width:0,
+                height:0
+            })
         }
         
         
@@ -47,7 +53,7 @@ const Modal = ({open,onClose,data}) => {
         <dialog open={open} className="modal">
             <div className="modal-box">
             <button onClick={onClose} className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
-                <h3 className="font-bold text-lg text-white">Update Overlay</h3>
+                <h3 className="font-bold text-lg text-white">Add New Overlay</h3>
                 <div className="modal-action">
                     <form onSubmit={handleSubmit}>
                         <div className='flex flex-col gap-y-6'>
@@ -58,7 +64,7 @@ const Modal = ({open,onClose,data}) => {
                         type="text" 
                         name="name" 
                         id='name'
-                        value={updateForm.name}
+                        value={overlayForm.name} 
                         onChange={handleChange}
                         required
                         placeholder='Name'
@@ -67,49 +73,63 @@ const Modal = ({open,onClose,data}) => {
                         </label>
                         <label className='flex text-white flex-col' htmlFor="type">
                             Type
-                        <select className='select bg-white text-black' id='type' type="text" name="type" placeholder='Select type'  value={updateForm.type} required onChange={handleChange}>
+                        <select className='select bg-white text-black' id='type' type="text" name="type" placeholder='Select type' value={overlayForm.type} required onChange={handleChange}>
                             <option disabled value="">Select Type</option>
                             <option value="text">Text</option>
                             <option value="image">Image</option>
                         </select>
                         </label>
                         </div>
-                        
+                        {overlayForm.type === 'image' &&
                         <label className='flex text-white flex-col' htmlFor="value">
-                            Image Url or Text
+                            Image Url
                         <input 
                         type="text" 
                         name="value" 
                         id='value'
                         placeholder='Url'
-                        value={updateForm.value} 
+                        value={overlayForm.value} 
                         onChange={handleChange}
                         className='input bg-white text-black'
                         required
                         />
-                        </label>
+                        </label>}
+                        {overlayForm.type === 'text' &&
+                        <label className='flex text-white flex-col' htmlFor="value">
+                            Text
+                        <input 
+                        type="text" 
+                        name="value" 
+                        id='value'
+                        placeholder='Text'
+                        value={overlayForm.value} 
+                        onChange={handleChange}
+                        className='input bg-white text-black'
+                        required
+                        />
+                        </label>}
                         
                         <div className='flex items-center gap-x-8'>
                         <label className='flex text-white flex-col' htmlFor="position_x">
-                            Position x-axis
+                            Position x-axis (in %)
                         <input 
                         type="number" 
                         name="position_x" 
                         id='position_x'
                         placeholder='(in %)'
-                        value={updateForm.position_x}
+                        value={overlayForm.position_x} 
                         onChange={handleChange}
                         className='input bg-white text-black'
                         />
                         </label>
                         <label className='flex text-white flex-col' htmlFor="position_y">
-                            Position y-axis
+                            Position y-axis (in %)
                         <input 
                         type="number" 
                         name="position_y" 
                         id='position_y'
-                        placeholder='in %'
-                        value={updateForm.position_y}
+                        placeholder='(in %)'
+                        value={overlayForm.position_y} 
                         onChange={handleChange}
                         className='input bg-white text-black'
                         />
@@ -117,32 +137,32 @@ const Modal = ({open,onClose,data}) => {
                         </div>
                         <div className='flex items-center gap-x-8'>
                         <label className='flex text-white flex-col' htmlFor="width">
-                            Width
+                            Width (in %)
                         <input 
                         type="number" 
                         name="width" 
                         id='width'
                         placeholder='(in %)'
-                        value={updateForm.width}
+                        value={overlayForm.width} 
                         onChange={handleChange}
                         className='input bg-white text-black'
                         required
                         />
                         </label>
                         <label className='flex text-white flex-col' htmlFor="height">
-                            Height
+                            Height (in %)
                         <input 
                         type="number" 
                         name="height" 
                         id='height'
                         placeholder='(in %)'
-                        value={updateForm.height}
+                        value={overlayForm.height} 
                         onChange={handleChange}
                         className='input bg-white text-black'
                         />
                         </label>
                         </div>
-                        <button disabled={loading} type='submit' className="btn btn-success text-white">Save Changes</button>
+                        <button disabled={loading} type='submit' className="btn btn-success text-white">Add Overlay</button>
                         </div>
                     </form>
                 </div>
