@@ -55,8 +55,8 @@ const OverlayList = () => {
     <div className='space-y-6'>
       <Modal open={open} onClose={onClose} />
       <UpdateModal open={modalOpen} data={selectedOverlay} onClose={onModalClose}/>
-      <div className='flex items-center gap-32'>
-        <h2 className='text-white font-semibold text-3xl'>Overlay List</h2>
+      <div className='flex items-center gap-x-6 md:gap-32'>
+        <h2 className='text-white font-semibold text-lg md:text-3xl'>Overlay List</h2>
         <button onClick={onOpen} className='btn btn-accent h-4'>
           <Plus />
           Add Overlay

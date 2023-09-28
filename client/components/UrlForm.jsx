@@ -13,12 +13,14 @@ const UrlForm = () => {
   }
   return (
     <div className='flex flex-col gap-y-4'>
-      <LiveVideo videoUrl={videoUrl} />
+      <div className='flex justify-center'>
+        <LiveVideo videoUrl={videoUrl} />
+      </div>
       <div className='lg:flex'>
         <div className='max-w-xs space-y-3'>
           <label className='flex flex-col text-white gap-y-2' htmlFor="videoUrl">
             Change Url
-            <div className='space-x-2'>
+            <div className='space-x-2 space-y-2'>
               <input type="text" id='videoUrl' placeholder='url' value={input} className='input input-bordered text-black border-black border-2 bg-white' onChange={(e) => setInput(e.target.value)} />
               <button className='btn btn-primary' onClick={handleClick}>Change</button>
             </div>

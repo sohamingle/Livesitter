@@ -62,7 +62,7 @@ const Modal = ({open,onClose,data}) => {
                         onChange={handleChange}
                         required
                         placeholder='Name'
-                        className='input bg-white text-black'
+                        className='input w-32 md:w-auto bg-white text-black'
                         />
                         </label>
                         <label className='flex text-white flex-col' htmlFor="type">
@@ -84,7 +84,7 @@ const Modal = ({open,onClose,data}) => {
                         placeholder='Url'
                         value={updateForm.value} 
                         onChange={handleChange}
-                        className='input bg-white text-black'
+                        className='input w-32 md:w-auto bg-white text-black'
                         required
                         />
                         </label>
@@ -99,7 +99,7 @@ const Modal = ({open,onClose,data}) => {
                         placeholder='(in %)'
                         value={updateForm.position_x}
                         onChange={handleChange}
-                        className='input bg-white text-black'
+                        className='input w-32 md:w-auto bg-white text-black'
                         />
                         </label>
                         <label className='flex text-white flex-col' htmlFor="position_y">
@@ -111,7 +111,7 @@ const Modal = ({open,onClose,data}) => {
                         placeholder='in %'
                         value={updateForm.position_y}
                         onChange={handleChange}
-                        className='input bg-white text-black'
+                        className='input w-32 md:w-auto bg-white text-black'
                         />
                         </label>
                         </div>
@@ -125,7 +125,7 @@ const Modal = ({open,onClose,data}) => {
                         placeholder='(in %)'
                         value={updateForm.width}
                         onChange={handleChange}
-                        className='input bg-white text-black'
+                        className='input w-32 md:w-auto bg-white text-black'
                         required
                         />
                         </label>
@@ -138,7 +138,7 @@ const Modal = ({open,onClose,data}) => {
                         placeholder='(in %)'
                         value={updateForm.height}
                         onChange={handleChange}
-                        className='input bg-white text-black'
+                        className='input w-32 md:w-auto bg-white text-black'
                         />
                         </label>
                         </div>

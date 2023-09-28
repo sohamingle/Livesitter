@@ -55,7 +55,7 @@ const Modal = ({open,onClose}) => {
             <button onClick={onClose} className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
                 <h3 className="font-bold text-lg text-white">Add New Overlay</h3>
                 <div className="modal-action">
-                    <form onSubmit={handleSubmit}>
+                    <form className='w-screen max-2xl' onSubmit={handleSubmit}>
                         <div className='flex flex-col gap-y-6'>
                         <div className='flex items-center gap-x-8'>
                         <label className='flex text-white flex-col' htmlFor="name">
@@ -68,7 +68,7 @@ const Modal = ({open,onClose}) => {
                         onChange={handleChange}
                         required
                         placeholder='Name'
-                        className='input bg-white text-black'
+                        className='input w-32 md:w-auto bg-white text-black'
                         />
                         </label>
                         <label className='flex text-white flex-col' htmlFor="type">
@@ -90,7 +90,7 @@ const Modal = ({open,onClose}) => {
                         placeholder='Url'
                         value={overlayForm.value} 
                         onChange={handleChange}
-                        className='input bg-white text-black'
+                        className='input w-72 md:w-auto bg-white text-black'
                         required
                         />
                         </label>}
@@ -104,7 +104,7 @@ const Modal = ({open,onClose}) => {
                         placeholder='Text'
                         value={overlayForm.value} 
                         onChange={handleChange}
-                        className='input bg-white text-black'
+                        className='input w-72 md:w-auto bg-white text-black'
                         required
                         />
                         </label>}
@@ -119,7 +119,7 @@ const Modal = ({open,onClose}) => {
                         placeholder='(in %)'
                         value={overlayForm.position_x} 
                         onChange={handleChange}
-                        className='input bg-white text-black'
+                        className='input md:w-auto bg-white w-32 text-black'
                         />
                         </label>
                         <label className='flex text-white flex-col' htmlFor="position_y">
@@ -131,7 +131,7 @@ const Modal = ({open,onClose}) => {
                         placeholder='(in %)'
                         value={overlayForm.position_y} 
                         onChange={handleChange}
-                        className='input bg-white text-black'
+                        className='input w-32 md:auto bg-white text-black'
                         />
                         </label>
                         </div>
@@ -145,7 +145,7 @@ const Modal = ({open,onClose}) => {
                         placeholder='(in %)'
                         value={overlayForm.width} 
                         onChange={handleChange}
-                        className='input bg-white text-black'
+                        className='input w-32 md:w-auto bg-white text-black'
                         required
                         />
                         </label>
@@ -158,7 +158,7 @@ const Modal = ({open,onClose}) => {
                         placeholder='(in %)'
                         value={overlayForm.height} 
                         onChange={handleChange}
-                        className='input bg-white text-black'
+                        className='input w-32 md:w-auto bg-white text-black'
                         />
                         </label>
                         </div>
