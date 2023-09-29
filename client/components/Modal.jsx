@@ -9,7 +9,7 @@ const Modal = ({open,onClose}) => {
     const [overlayForm,setOverlayForm] = useState({
         name: '',
         type:'',
-        value: '',
+        value:'',
         position_x:0,
         position_y:0,
         width:0,

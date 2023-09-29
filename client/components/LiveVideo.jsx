@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 
-const LiveVideo = ({videoUrl}) => {
+const LiveVideo = ({videoUrl,open,modalOpen,refresh}) => {
 
   const [textOverlays,setTextOverlays] = useState([])
   const [imageOverlays,setImageOverlays] = useState([])
@@ -14,7 +14,7 @@ const LiveVideo = ({videoUrl}) => {
       setImageOverlays(image.data)
     }
     getOverlays()
-  },[textOverlays])
+  },[open,modalOpen,refresh])
 
   return (
     <div className='relative'>

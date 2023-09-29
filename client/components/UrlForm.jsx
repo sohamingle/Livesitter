@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import LiveVideo from './LiveVideo'
 
-const UrlForm = () => {
+const UrlForm = ({open,refresh,modalOpen}) => {
   const [videoUrl, setVideoUrl] = useState('https://rtsp.me/embed/k9SQ9rFN/')
   const [input, setInput] = useState('')
 
@@ -14,7 +14,7 @@ const UrlForm = () => {
   return (
     <div className='flex flex-col gap-y-4'>
       <div className='flex justify-center'>
-        <LiveVideo videoUrl={videoUrl} />
+        <LiveVideo videoUrl={videoUrl} open={open} modalOpen={modalOpen} refresh={refresh}/>
       </div>
       <div className='lg:flex'>
         <div className='max-w-xs space-y-3'>
